@@ -3,6 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Defensive guard against browser extensions attempting to monkeypatch window.fetch
+      (function() {
+        try {
+          var currentFetch = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return currentFetch; },
+            set: function(fn) { currentFetch = fn; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {}
+      })();
+    </script>
     
     <!-- Core SEO Meta -->
     <title>Tedo Makharadze — Creative Technologist & Artist Portfolio</title>
@@ -76,8 +90,8 @@
     </script>
 
     <style>:root{--system-font:-apple-system, "system-ui", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}body{font-family:var(--system-font);color:#000;background-color:#fff}</style>
-    <script type="module" crossorigin src="/assets/index-DLfsF84I.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-DzZ1qzfO.css">
+    <script type="module" crossorigin src="/assets/index-d1cTh2bk.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-4xY6EwEs.css">
   </head>
   <body class="bg-white text-black min-h-screen overflow-x-hidden">
     <div id="root"></div>
